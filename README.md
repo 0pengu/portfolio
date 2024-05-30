@@ -1,3 +1,3 @@
 # midhat.io
 
-Personal Portfolio Website
+Personal Portfolio Website with Resume
