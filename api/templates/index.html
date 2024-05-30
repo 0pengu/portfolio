@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Tahmid Ahmed's (0pengu) personal website showcasing projects, as well as links to Tahmid Ahmed's GitHub, LinkedIn, and more."
+    />
+    {% if DEBUG %} {% else %}
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
+    {% endif %}
+    <title>Tahmid Ahmed</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/logo.png') }}"
+    />
+    <link
+      href="{{ url_for('static', filename = 'css/index.css')}}"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/d17c7b08c3.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main>
+      <div id="title-body">
+        <h1>
+          Hi, I'm
+          <span class="magic">
+            <span class="magic-star">
+              <svg viewBox="0 0 512 512">
+                <path
+                  d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z"
+                />
+              </svg>
+            </span>
+            <span class="magic-star">
+              <svg viewBox="0 0 512 512">
+                <path
+                  d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z"
+                />
+              </svg>
+            </span>
+            <span class="magic-star">
+              <svg viewBox="0 0 512 512">
+                <path
+                  d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z"
+                />
+              </svg>
+            </span>
+            <span class="magic-text"> Tahmid Ahmed </span>
+          </span>
+        </h1>
+      </div>
+      <div id="card-body">
+        <div id="cards">
+          <div class="card" style="cursor: default; overflow: auto">
+            <div class="card-content">
+              <div class="card-info-wrapper">
+                <div class="card-info">
+                  <i class="fa-solid fa-globe"></i>
+                  <div class="card-info-title">
+                    <h3>Software Engineer</h3>
+                    <h6>
+                      A Computer Science student with a variety of experience in
+                      frontend, backend, languages, and frameworks.
+                    </h6>
+                    <h6>
+                      Designed a chatbot designed to help struggling students
+                      answer difficult questions without a tutor, developed a
+                      program to send progress reports to parents, and created a
+                      graphical software that interacts with Valorant endpoints
+                      to help improve accessibility.
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="card" href="/resume">
+            <div class="card-content">
+              <div class="card-image">
+                <i class="fa-solid fa-file-pdf"></i>
+              </div>
+              <div class="card-info-wrapper">
+                <div class="card-info">
+                  <i class="fa-solid fa-file-arrow-down"></i>
+                  <div class="card-info-title">
+                    <h3>Resume</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://linkedin.com/in/tahmidahmed-">
+            <div class="card-content">
+              <div class="card-image">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+              <div class="card-info-wrapper">
+                <div class="card-info">
+                  <i class="fa-brands fa-linkedin"></i>
+                  <div class="card-info-title">
+                    <h3>LinkedIn</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://pencil.synergy-prep.com">
+            <div class="card-content">
+              <div class="card-image">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <div class="card-info-wrapper">
+                <div class="card-info">
+                  <i class="fa-brands fa-discord"></i>
+                  <div class="card-info-title">
+                    <h3>Project PENCIL</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://instalock.midhat.io">
+            <div class="card-content">
+              <div class="card-image">
+                <i class="fa-solid fa-gamepad"></i>
+              </div>
+              <div class="card-info-wrapper">
+                <div class="card-info">
+                  <i class="fa-brands fa-headset"></i>
+                  <div class="card-info-title">
+                    <h3>Instalock for Valorant</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a class="card" href="https://github.com/0pengu">
+            <div class="card-content">
+              <div class="card-image">
+                <i class="fa-brands fa-github"></i>
+              </div>
+              <div class="card-info-wrapper">
+                <div class="card-info">
+                  <i class="fa-brands fa-github-alt"></i>
+                  <div class="card-info-title">
+                    <h3>GitHub</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  </body>
+</html>
