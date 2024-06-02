@@ -36,6 +36,6 @@ def api():
 @app.route("/api/mkt_ver")
 def mouseketools_version():
     version = {
-        "version": "1.0.9"
+        "version": "1.1"
     }
     return jsonify(version)
