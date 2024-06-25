@@ -29,7 +29,7 @@ export default function Home() {
       <section className="h-screen w-screen">
         <div className="title-body relative flex flex-col items-center justify-center h-full">
           <HOne
-            className="shadow-lg text-3xl md:text-5xl lg:text-8xl"
+            className="shadow-lg text-3xl md:text-7xl lg:text-8xl"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{

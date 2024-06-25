@@ -12,7 +12,7 @@ export function Navbar() {
   const setPath = usePathStore((state) => state.setPath);
   return (
     <>
-      <nav className="sticky top-10 z-10 bg-zinc-900/50 backdrop-filter backdrop-blur-md border-1 rounded-full w-1/2 border-gray-800 justify-self-center m-auto">
+      <nav className="sticky top-10 z-10 bg-zinc-900/50 backdrop-filter backdrop-blur-md border-1 rounded-full w-3/4 lg:w-1/2 border-gray-800 justify-self-center m-auto">
         <div className="max-w-5xl mx-auto px-4">
           <div className="flex items-center justify-between h-16 mx-3 space-x-4">
             <a
