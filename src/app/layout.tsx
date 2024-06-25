@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Rubik } from "next/font/google";
+import { Inter, Rubik } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/app/components/Navbar";
 
-const rubik = Rubik({
+const rubik = Inter({
   subsets: ["latin"],
   weight: ["400", "500"],
   display: "swap",

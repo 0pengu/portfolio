@@ -1,7 +1,7 @@
 "use client";
 
-import { MagicStar } from "@/app/components/MagicStar";
-import { MagicText } from "@/app/components/MagicText";
+import { MagicStar } from "@/app/components/Magic/MagicStar";
+import { MagicText } from "@/app/components/Magic/MagicText";
 import { useEffect } from "react";
 
 export function Magic({ name }: { name: string }) {
