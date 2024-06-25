@@ -140,8 +140,9 @@ export default function Home() {
           languages={["typescript", "next", "supabase", "vercel", "discord"]}
         />
         <Card
+          href="https://github.com/0pengu/midhat.io"
           title="Portfolio"
-          type="unclickable"
+          type="clickable"
           icon={<ImProfile size={"50"} />}
           description="Portfolio website to showcase my projects"
           languages={["typescript", "next", "tailwind", "vercel"]}
