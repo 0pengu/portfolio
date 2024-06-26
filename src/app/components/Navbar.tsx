@@ -27,7 +27,7 @@ export function Navbar() {
             >
               Home
             </a>
-            <Progress className="rounded-full w-[95%]" />
+            <Progress className="rounded-full" />
             <a
               href="#projects"
               className={`${
