@@ -22,6 +22,7 @@ import { motion } from "framer-motion";
 import { HOne } from "@/app/components/Motion/HOne";
 import { HTwo } from "@/app/components/Motion/HTwo";
 import { HThree } from "@/app/components/Motion/HThree";
+import { ShimmerText } from "@/app/components/ShimmerText/ShimmerText";
 
 export default function Home() {
   return (
@@ -45,8 +46,8 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              delay: 1,
-              duration: 0.3,
+              delay: 0.6,
+              duration: 0.8,
               ease: [0, 0.71, 0.2, 1.01],
               scale: {
                 type: "spring",
@@ -59,27 +60,15 @@ export default function Home() {
             Fullstack Developer
           </HTwo>
           <br />
-          <HThree
-            className="text-sm w-1/2 text-gray-400 text-center"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              delay: 1.5,
-              duration: 0.3,
-              ease: [0, 0.71, 0.2, 1.01],
-              scale: {
-                type: "spring",
-                damping: 5,
-                stiffness: 100,
-                restDelta: 0.001,
-              },
-            }}
-          >
-            I am a rising junior at Hunter College studying computer science. I
+          <ShimmerText
+            text=" I am a rising junior at Hunter College studying computer science. I
             am passionate about software development, and my recent ventures
             have been into web development. I am currently looking for
-            internship opportunities!
-          </HThree>
+            internship opportunities!"
+            className="text-sm w-1/2 text-gray-400 text-center"
+            delay={0.7}
+            speed="veryfast"
+          />
           <br />
           {/* TODO - Could use Framer to animate buttons */}
           <div>
