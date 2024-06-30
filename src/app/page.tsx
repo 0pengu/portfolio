@@ -24,6 +24,11 @@ import { HTwo } from "@/app/components/Motion/HTwo";
 import { HThree } from "@/app/components/Motion/HThree";
 import { ShimmerText } from "@/app/components/ShimmerText/ShimmerText";
 
+import InstalockImg from "../../public/screenshot/instalock.midhat.io.png";
+import PortfolioImg from "../../public/screenshot/midhat.io.png";
+import PencilImg from "../../public/screenshot/pencil.synergy-prep.com.png";
+import TodoImg from "../../public/screenshot/todo.midhat.io.png";
+
 export default function Home() {
   return (
     <>
@@ -88,6 +93,7 @@ export default function Home() {
           title="PENCIL"
           type="clickable"
           icon={<FaPencil size={"50"} />}
+          src={PencilImg}
           description="An educational assistant powered by AI"
           languages={[
             "typescript",
@@ -108,6 +114,7 @@ export default function Home() {
           title="Instalock"
           type="clickable"
           icon={<SiRiotgames size={"50"} />}
+          src={InstalockImg}
           description="A companion webapp for hit FPS game Valorant"
           languages={[
             "typescript",
@@ -125,6 +132,7 @@ export default function Home() {
           title="custom:latex"
           type="clickable"
           icon={<BiCalendar size={"50"} />}
+          src={TodoImg}
           description="A todo app integrated with Discord"
           languages={["typescript", "next", "supabase", "vercel", "discord"]}
         />
@@ -132,6 +140,7 @@ export default function Home() {
           href="https://github.com/0pengu/midhat.io"
           title="Portfolio"
           type="clickable"
+          src={PortfolioImg}
           icon={<ImProfile size={"50"} />}
           description="Portfolio website to showcase my projects"
           languages={["typescript", "next", "tailwind", "vercel"]}

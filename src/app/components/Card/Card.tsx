@@ -21,9 +21,11 @@ import {
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { BsDiscord } from "react-icons/bs";
 import { CgExternal } from "react-icons/cg";
+import Image, { StaticImageData } from "next/image";
 
 export function Card({
   href,
+  src,
   icon,
   title,
   type,
@@ -31,7 +33,8 @@ export function Card({
   languages,
 }: {
   href?: string | undefined;
-  icon: ReactElement<IconType>;
+  icon?: ReactElement<IconType>;
+  src?: string | StaticImageData;
   title: "custom:latex" | string;
   type: "clickable" | "unclickable";
   description: string;
@@ -65,8 +68,16 @@ export function Card({
       }}
     >
       <div className="card-content">
-        {type === "clickable" && <CgExternal size={"15"} />}
-        <div className="card-image">{icon}</div>
+        {/* {type === "clickable" && <CgExternal size={"15"} />} */}
+        {src ? (
+          <Image
+            src={src}
+            alt={typeof src === "string" ? src : title}
+            className="card-image rounded-md "
+          />
+        ) : (
+          <div className="card-image">{icon}</div>
+        )}
         <div className="card-info-wrapper">
           <div className="card-info">
             <div className="card-info-title">
