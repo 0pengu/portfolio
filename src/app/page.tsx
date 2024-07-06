@@ -1,12 +1,12 @@
-import { Email } from "@/app/components/Button/Email";
-import { GitHub } from "@/app/components/Button/GitHub";
-import { LinkedIn } from "@/app/components/Button/LinkedIn";
-import { Resume } from "@/app/components/Button/Resume";
-import { Card } from "@/app/components/Card/Card";
-import { CardBody } from "@/app/components/Card/CardBody";
-import { Magic } from "@/app/components/Magic/Magic";
-import { MagicStar } from "@/app/components/Magic/MagicStar";
-import { Progress } from "@/app/components/Progress";
+import { Email } from "@/components/Button/Email";
+import { GitHub } from "@/components/Button/GitHub";
+import { LinkedIn } from "@/components/Button/LinkedIn";
+import { Resume } from "@/components/Button/Resume";
+import { Card } from "@/components/Card/Card";
+import { CardBody } from "@/components/Card/CardBody";
+import { Magic } from "@/components/Magic/Magic";
+import { MagicStar } from "@/components/Magic/MagicStar";
+import { Progress } from "@/components/Progress";
 import { useEffect } from "react";
 import { BiCalendar, BiMouse } from "react-icons/bi";
 import { CgCalendar } from "react-icons/cg";
@@ -19,10 +19,10 @@ import { SiRiotgames } from "react-icons/si";
 import { TbHandFinger } from "react-icons/tb";
 // TODO - Add images to the cards instead of icons
 import { motion } from "framer-motion";
-import { HOne } from "@/app/components/Motion/HOne";
-import { HTwo } from "@/app/components/Motion/HTwo";
-import { HThree } from "@/app/components/Motion/HThree";
-import { ShimmerText } from "@/app/components/ShimmerText/ShimmerText";
+import { HOne } from "@/components/Motion/HOne";
+import { HTwo } from "@/components/Motion/HTwo";
+import { HThree } from "@/components/Motion/HThree";
+import { ShimmerText } from "@/components/ShimmerText/ShimmerText";
 
 import InstalockImg from "../../public/screenshot/instalock.midhat.io.png";
 import PortfolioImg from "../../public/screenshot/midhat.io.png";
@@ -140,7 +140,7 @@ export default function Home() {
           href="https://github.com/0pengu/midhat.io"
           title="Portfolio"
           type="clickable"
-          src={PortfolioImg}
+          src={InstalockImg}
           icon={<ImProfile size={"50"} />}
           description="Portfolio website to showcase my projects"
           languages={["typescript", "next", "tailwind", "vercel"]}

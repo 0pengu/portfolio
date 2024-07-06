@@ -1,7 +1,7 @@
 "use client";
 
-import { usePathStore } from "@/app/components/store";
-import { Progress } from "@/app/components/Progress";
+import { usePathStore } from "@/components/store";
+import { Progress } from "@/components/Progress";
 import { stat } from "fs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

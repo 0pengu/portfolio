@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Card } from "@/app/components/Card/Card";
-import { usePathStore } from "@/app/components/store";
+import { Card } from "@/components/Card/Card";
+import { usePathStore } from "@/components/store";
 
 export function CardBody({ children }: { children: React.ReactNode }) {
   const path = usePathStore((state) => state.path);

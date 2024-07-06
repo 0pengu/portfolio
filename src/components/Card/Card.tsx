@@ -65,6 +65,7 @@ export function Card({
       style={{
         position: "relative",
         cursor: type === "clickable" ? "pointer" : "not-allowed",
+        backgroundImage: "../../public/screenshot/todo.midhat.io.png",
       }}
     >
       <div className="card-content">
@@ -100,52 +101,52 @@ export function Card({
             languages.map((language) => {
               switch (language) {
                 case "python":
-                  return <FaPython />;
+                  return <FaPython key={language} />;
                   break;
                 case "react":
-                  return <FaReact />;
+                  return <FaReact key={language} />;
                   break;
                 case "typescript":
-                  return <BiLogoTypescript />;
+                  return <BiLogoTypescript key={language} />;
                   break;
                 case "flask":
-                  return <SiFlask />;
+                  return <SiFlask key={language} />;
                   break;
                 case "vite":
-                  return <SiVite />;
+                  return <SiVite key={language} />;
                   break;
                 case "vercel":
-                  return <SiVercel />;
+                  return <SiVercel key={language} />;
                   break;
                 case "caddy":
-                  return <SiCaddy />;
+                  return <SiCaddy key={language} />;
                   break;
                 case "postgres":
-                  return <SiPostgresql />;
+                  return <SiPostgresql key={language} />;
                   break;
                 case "docker":
-                  return <FaDocker />;
+                  return <FaDocker key={language} />;
                   break;
                 case "redis":
-                  return <SiRedis />;
+                  return <SiRedis key={language} />;
                   break;
                 case "rq":
-                  return <SiRabbitmq />;
+                  return <SiRabbitmq key={language} />;
                   break;
                 case "next":
-                  return <RiNextjsFill />;
+                  return <RiNextjsFill key={language} />;
                   break;
                 case "supabase":
-                  return <SiSupabase />;
+                  return <SiSupabase key={language} />;
                   break;
                 case "discord":
-                  return <BsDiscord />;
+                  return <BsDiscord key={language} />;
                 case "twilio":
-                  return <SiTwilio />;
+                  return <SiTwilio key={language} />;
                 case "sqlite":
-                  return <SiSqlite />;
+                  return <SiSqlite key={language} />;
                 case "tailwind":
-                  return <RiTailwindCssFill />;
+                  return <RiTailwindCssFill key={language} />;
                 default:
                   return null;
               }
