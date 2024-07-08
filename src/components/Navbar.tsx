@@ -31,7 +31,7 @@ export function Navbar() {
   return (
     <>
       <motion.nav
-        className="sticky top-10 z-10 bg-zinc-900/50 backdrop-filter backdrop-blur-md border-1 rounded-full w-3/4 lg:w-1/2 border-gray-800 justify-self-center m-auto"
+        className="sticky top-10 z-10 bg-zinc-900/50 backdrop-filter backdrop-blur-md border-1 rounded-full w-3/4 lg:w-1/2 border-gray-800 justify-self-center m-auto overflow-hidden"
         style={{ y: yTransform }}
       >
         <div className="flex items-center justify-between h-16 mx-3 space-x-4">
@@ -47,7 +47,6 @@ export function Navbar() {
           >
             Home
           </a>
-          <Progress className="rounded-full" />
           <a
             href="#projects"
             className={`${
@@ -61,6 +60,7 @@ export function Navbar() {
             Projects
           </a>
         </div>
+        <Progress className="rounded-full" />
       </motion.nav>
     </>
   );
