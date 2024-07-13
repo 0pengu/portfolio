@@ -32,7 +32,7 @@ import TodoImg from "../../public/screenshot/todo.midhat.io.png";
 export default function Home() {
   return (
     <>
-      <section className="h-screen w-screen">
+      <section className="h-dvh w-dvh">
         <div className="title-body relative flex flex-col items-center justify-center h-full">
           <HOne
             className="shadow-lg text-3xl md:text-7xl lg:text-8xl"
@@ -140,7 +140,7 @@ export default function Home() {
           href="https://github.com/0pengu/midhat.io"
           title="Portfolio"
           type="clickable"
-          src={InstalockImg}
+          src={PortfolioImg}
           icon={<ImProfile size={"50"} />}
           description="Portfolio website to showcase my projects"
           languages={["typescript", "next", "tailwind", "vercel"]}

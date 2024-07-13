@@ -37,7 +37,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 mx-3 space-x-4">
           <a
             href="#"
-            className={`${
+            className={`p-4 ${
               path === "/" ? "text-white" : "text-gray-700"
             } hover:drop-shadow-2xl`}
             onClick={(e) => {
@@ -49,7 +49,7 @@ export function Navbar() {
           </a>
           <a
             href="#projects"
-            className={`${
+            className={`p-4 ${
               path === "/projects" ? "text-white" : "text-gray-700"
             } hover:drop-shadow-2xl`}
             onClick={(e) => {
