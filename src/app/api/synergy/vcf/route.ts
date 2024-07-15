@@ -7,7 +7,7 @@ export async function GET() {
     process.cwd(),
     "public",
     "contact",
-    "Synergy Notifications.vcf"
+    "Synergy Prep Notifications.vcf"
   );
   const fileBuffer = fs.readFileSync(filePath);
 
@@ -15,7 +15,8 @@ export async function GET() {
     headers: {
       "Content-Type": "text/vcard",
       "Cache-Control": "no-cache",
-      "Content-Disposition": "inline; filename=Synergy Notifications.vcf",
+      "Content-Disposition":
+        'inline; filename="Synergy Prep Notifications.vcf"',
     },
   });
 }
