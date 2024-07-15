@@ -10,13 +10,12 @@ export async function GET() {
     "Synergy Prep Notifications.vcf"
   );
   const fileBuffer = fs.readFileSync(filePath);
-  const filename = encodeURIComponent("Synergy Prep Notifications.vcf");
 
   return new NextResponse(fileBuffer, {
     headers: {
       "Content-Type": "text/vcard",
       "Cache-Control": "no-cache",
-      "Content-Disposition": `inline; filename*=UTF-8''${filename}`,
+      "Content-Disposition": "inline; filename=Synergy_Prep_Notifications.vcf",
     },
   });
 }
