@@ -15,7 +15,7 @@ export async function GET() {
     headers: {
       "Content-Type": "text/vcard",
       "Cache-Control": "no-cache",
-      "Content-Disposition": "inline; filename=Synergy_Prep_Notifications.vcf",
+      "Content-Disposition": "inline; filename=Synergy Prep Notifications.vcf",
     },
   });
 }
