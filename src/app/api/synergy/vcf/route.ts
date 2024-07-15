@@ -12,6 +12,10 @@ export async function GET() {
   const fileBuffer = fs.readFileSync(filePath);
 
   return new NextResponse(fileBuffer, {
-    headers: { "Content-Type": "text/vcard", "Cache-Control": "no-cache" },
+    headers: {
+      "Content-Type": "text/vcard",
+      "Cache-Control": "no-cache",
+      "Content-Disposition": "inline; filename=Synergy Prep Notifications.vcf",
+    },
   });
 }
