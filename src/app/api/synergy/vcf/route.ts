@@ -13,7 +13,7 @@ export async function GET() {
 
   return new NextResponse(fileBuffer, {
     headers: {
-      "Content-Type": "text/vcard",
+      "Content-Type": "text/x-vcard",
       "Cache-Control": "no-cache",
       "Content-Disposition": "inline; filename=Synergy Prep Notifications.vcf",
     },
