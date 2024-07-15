@@ -1,13 +1,12 @@
 BEGIN:VCARD
 VERSION:3.0
-PRODID:-//Apple Inc.//iPhone OS 18.0//EN
-N:;Synergy Prep Notifications;;;
-FN:Synergy Prep Notifications
-ORG:Synergy Prep;
-TITLE:Synergy Prep Notifications;
-TEL;type=CELL;type=VOICE;type=pref:+1 (929) 306-6609
-item1.ADR;type=HOME;type=pref:;;1887 Gleason Ave;Bronx;NY;10472;United States
-item1.X-ABADR:us
+PRODID:-//Apple Inc.//iPhone OS 12.4.1//EN
+N:Li;James;;;
+FN:James Li
+ORG:Mighty Health;
+TITLE:Heart Health Coach;
+EMAIL;type=INTERNET;type=pref:james@mightyhealth.com
+TEL;type=CELL;type=VOICE;type=pref:+1 (415) 592-6669
 PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAA
  AAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABQKADAAQAAAABAA
  ABQAAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCy
