@@ -3,7 +3,12 @@ import { resolve } from "path";
 import fs from "fs";
 
 export async function GET() {
-  const filePath = resolve(process.cwd(), "public", "contact", "contact.vcf");
+  const filePath = resolve(
+    process.cwd(),
+    "public",
+    "contact",
+    "Synergy Prep Notifications.vcf"
+  );
   const fileBuffer = fs.readFileSync(filePath);
 
   return new NextResponse(fileBuffer, {

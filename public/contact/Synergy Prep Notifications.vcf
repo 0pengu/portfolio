@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//iPhone OS 18.0//EN
+N:;Synergy Prep Notifications;;;
+FN:Synergy Prep Notifications
+ORG:Synergy Prep;
+TEL;type=CELL;type=VOICE;type=pref:+1 (929) 306-6609
+item1.ADR;type=HOME;type=pref:;;1887 Gleason Ave;Bronx;NY;10472;United States
+item1.X-ABADR:us
+END:VCARD
