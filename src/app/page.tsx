@@ -35,14 +35,14 @@ export default function Home() {
   const titles = [
     "",
     1500,
-    "Software Engineer",
-    800,
-    "Entrepreneur",
-    800,
-    "Bro-grammer",
-    800,
-    "Full Stack Developer",
-    800,
+    "create fullstack apps",
+    1500,
+    "break fullstack apps",
+    300,
+    "solve hard problems",
+    1500,
+    "learn new things",
+    1500,
   ];
   return (
     <>
@@ -64,7 +64,8 @@ export default function Home() {
 
             <br />
 
-            <div className="text-xl md:text-2xl lg:text-4xl">
+            <div className="flex items-center text-xl md:text-2xl lg:text-4xl">
+              <div className="mr-2">I like to</div>
               <Typewriter steps={titles} />
             </div>
 
