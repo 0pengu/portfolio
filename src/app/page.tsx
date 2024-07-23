@@ -90,6 +90,7 @@ export default function Home() {
           <Card
             href="https://pencil.synergy-prep.com"
             title="PENCIL"
+            alt="Project Pencil for Synergy Prep by Tahmid Ahmed"
             type="clickable"
             icon={<FaPencil size={"50"} />}
             src={PencilImg}
@@ -111,6 +112,7 @@ export default function Home() {
           <Card
             href="https://instalock.midhat.io"
             title="Instalock"
+            alt="Instalock Valorant Companion by Tahmid Ahmed"
             type="clickable"
             icon={<SiRiotgames size={"50"} />}
             src={InstalockImg}
@@ -129,6 +131,7 @@ export default function Home() {
           <Card
             href="https://todo.midhat.io"
             title="custom:latex"
+            alt="Todo App made with Next.js by Tahmid Ahmed"
             type="clickable"
             icon={<BiCalendar size={"50"} />}
             src={TodoImg}
@@ -138,6 +141,7 @@ export default function Home() {
           <Card
             href="https://github.com/0pengu/midhat.io"
             title="Portfolio"
+            alt="Portfolio website made with Next.js by Tahmid Ahmed"
             type="clickable"
             src={PortfolioImg}
             icon={<ImProfile size={"50"} />}
@@ -147,6 +151,7 @@ export default function Home() {
           <Card
             title="Mouseketool"
             type="unclickable"
+            alt="Mouseketool made with Next.js by Tahmid Ahmed"
             icon={<RiMickeyFill size={"50"} />}
             description="A graphical program that uses Twilio to send parents student reports"
             languages={["python", "twilio", "sqlite"]}
@@ -154,11 +159,13 @@ export default function Home() {
           <Card
             title="Quick!"
             type="unclickable"
+            alt="Quick! Valorant by Tahmid Ahmed"
             icon={<GiSprint size={"50"} />}
             description="A graphical program that sends notifications about Valorant matches"
             languages={["python", "twilio"]}
           />
         </CardBody>
+        <div className="min-w-full"></div>
       </div>
     </>
   );

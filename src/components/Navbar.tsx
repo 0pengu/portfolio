@@ -24,7 +24,7 @@ export function Navbar() {
   const scaledVelocity = useTransform(scrollVelocity, (v) => v / 10);
 
   const yTransform = useSpring(scaledVelocity, {
-    stiffness: 30,
+    stiffness: 20,
     damping: 25,
     restDelta: 0.001,
   });
@@ -37,14 +37,14 @@ export function Navbar() {
   return (
     <>
       <motion.nav
-        className="sticky bottom-10 z-10 bg-zinc-900/50 backdrop-filter backdrop-blur-md border-1 rounded-full w-[65%] xs:w-[50%] md:w-1/4 border-gray-800 justify-self-center m-auto overflow-hidden"
+        className="sticky bottom-12 z-10 bg-zinc-900/50 backdrop-filter backdrop-blur-md border-1 rounded-full w-[65%] xs:w-[50%] md:w-1/4 border-gray-800 justify-self-center m-auto overflow-hidden"
         style={{ y: yTransform }}
       >
         <div className="flex items-center justify-between h-16 mx-3 space-x-4">
-          <a
+          <Link
             href="#"
             className={`p-4 ${
-              path === "/" ? "text-white" : "text-gray-700"
+              path === "/" ? "text-purple-400" : "text-white"
             } hover:drop-shadow-2xl`}
             onClick={(e) => {
               e.preventDefault();
@@ -53,11 +53,11 @@ export function Navbar() {
             }}
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="#projects"
             className={`p-4 ${
-              path === "/projects" ? "text-white" : "text-gray-700"
+              path === "/projects" ? "text-purple-400" : "text-white"
             } hover:drop-shadow-2xl`}
             onClick={(e) => {
               e.preventDefault();
@@ -66,7 +66,7 @@ export function Navbar() {
             }}
           >
             Projects
-          </a>
+          </Link>
         </div>
         <Progress className="rounded-full" />
       </motion.nav>

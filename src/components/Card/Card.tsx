@@ -31,6 +31,7 @@ export function Card({
   type,
   description,
   languages,
+  alt,
 }: {
   href?: string | undefined;
   icon?: ReactElement<IconType>;
@@ -38,6 +39,7 @@ export function Card({
   title: "custom:latex" | string;
   type: "clickable" | "unclickable";
   description: string;
+  alt?: string;
   languages: (
     | "python"
     | "react"
@@ -58,13 +60,13 @@ export function Card({
     | "tailwind"
   )[];
 }) {
-  return (
+  return type === "unclickable" ? (
     <a
       className="card"
       href={href ?? undefined}
       style={{
         position: "relative",
-        cursor: type === "clickable" ? "pointer" : "not-allowed",
+        cursor: "not-allowed",
         backgroundImage: "../../public/screenshot/todo.midhat.io.png",
       }}
     >
@@ -73,8 +75,104 @@ export function Card({
         {src ? (
           <Image
             src={src}
-            alt={typeof src === "string" ? src : title}
-            className="card-image rounded-md "
+            alt={alt ? alt : typeof src === "string" ? src : title}
+            className="card-image rounded-md"
+          />
+        ) : (
+          <div className="card-image">{icon}</div>
+        )}
+        <div className="card-info-wrapper">
+          <div className="card-info">
+            <div className="card-info-title">
+              {title === "custom:latex" ? (
+                <>
+                  {"{Todo}"}
+                  <Latex>$^2$</Latex>
+                </>
+              ) : (
+                <h3>{title}</h3>
+              )}
+            </div>
+            <div className="text-xs text-gray-400 text-center">
+              {description}
+            </div>
+          </div>
+        </div>
+        <div className="flex gap-1 justify-end mt-1 space-x-2 z-50 overflow-auto">
+          {languages &&
+            languages.map((language) => {
+              switch (language) {
+                case "python":
+                  return <FaPython key={language} />;
+                  break;
+                case "react":
+                  return <FaReact key={language} />;
+                  break;
+                case "typescript":
+                  return <BiLogoTypescript key={language} />;
+                  break;
+                case "flask":
+                  return <SiFlask key={language} />;
+                  break;
+                case "vite":
+                  return <SiVite key={language} />;
+                  break;
+                case "vercel":
+                  return <SiVercel key={language} />;
+                  break;
+                case "caddy":
+                  return <SiCaddy key={language} />;
+                  break;
+                case "postgres":
+                  return <SiPostgresql key={language} />;
+                  break;
+                case "docker":
+                  return <FaDocker key={language} />;
+                  break;
+                case "redis":
+                  return <SiRedis key={language} />;
+                  break;
+                case "rq":
+                  return <SiRabbitmq key={language} />;
+                  break;
+                case "next":
+                  return <RiNextjsFill key={language} />;
+                  break;
+                case "supabase":
+                  return <SiSupabase key={language} />;
+                  break;
+                case "discord":
+                  return <BsDiscord key={language} />;
+                case "twilio":
+                  return <SiTwilio key={language} />;
+                case "sqlite":
+                  return <SiSqlite key={language} />;
+                case "tailwind":
+                  return <RiTailwindCssFill key={language} />;
+                default:
+                  return null;
+              }
+            })}
+        </div>
+      </div>
+    </a>
+  ) : (
+    <a
+      className="card"
+      href={href ?? undefined}
+      style={{
+        position: "relative",
+        cursor: "pointer",
+        backgroundImage: "../../public/screenshot/todo.midhat.io.png",
+      }}
+    >
+      <div className="card-content">
+        {/* {type === "clickable" && <CgExternal size={"15"} />} */}
+        {src ? (
+          <Image
+            src={src}
+            alt={alt ? alt : typeof src === "string" ? src : title}
+            className="card-image rounded-md"
           />
         ) : (
           <div className="card-image">{icon}</div>

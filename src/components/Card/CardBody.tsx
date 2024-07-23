@@ -62,10 +62,8 @@ export function CardBody({ children }: { children: React.ReactNode }) {
       }
 
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        console.log("Setting path to /projects");
         setPath("/projects");
       } else if (window.scrollY === 0) {
-        console.log("Setting path to /");
         setPath("/");
       }
     };
