@@ -35,7 +35,7 @@ export function Navbar() {
         style={{ y: yTransform }}
       >
         <div className="flex items-center justify-between h-16 mx-3 space-x-4">
-          <a
+          <Link
             href="#"
             className={`p-4 ${
               path === "/" ? "text-white" : "text-gray-700"
@@ -46,8 +46,8 @@ export function Navbar() {
             }}
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="#projects"
             className={`p-4 ${
               path === "/projects" ? "text-white" : "text-gray-700"
@@ -58,7 +58,7 @@ export function Navbar() {
             }}
           >
             Projects
-          </a>
+          </Link>
         </div>
         <Progress className="rounded-full" />
       </motion.nav>

@@ -16,6 +16,10 @@ export function Magic({ name }: { name: string }) {
       star.style.setProperty("--star-left", `${rand(-10, 100)}%`);
       star.style.setProperty("--star-top", `${rand(-40, 80)}%`);
 
+      const colors = ["var(--purple)", "var(--pink)", "var(--violet)"];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      star.querySelector("svg path").style.fill = randomColor;
+
       star.style.animation = "none";
       star.offsetHeight; // Trigger reflow
       star.style.animation = "";
