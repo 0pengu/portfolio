@@ -35,9 +35,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${rubik.className} min-w-[250dvh]`}>
-        {children}
-        <Navbar />
+      <body className={`${rubik.className}`}>
+        <div className="h-max">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );

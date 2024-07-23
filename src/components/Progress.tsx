@@ -17,6 +17,7 @@ export function Progress({
     damping: 30,
     restDelta: 0.001,
   });
+
   return (
     <div className="bg-transparent h-1 sticky top-0 left-0 right-0 w-full rounded-full">
       <motion.div

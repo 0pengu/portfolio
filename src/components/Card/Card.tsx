@@ -97,7 +97,7 @@ export function Card({
             </div>
           </div>
         </div>
-        <div className="flex gap-1 justify-end mt-1 space-x-2 z-50 overflow-auto">
+        <div className="flex gap-1 justify-end mt-1 space-x-2 z-50">
           {languages &&
             languages.map((language) => {
               switch (language) {
@@ -193,7 +193,7 @@ export function Card({
             </div>
           </div>
         </div>
-        <div className="flex gap-1 justify-end mt-1 space-x-2 z-50 overflow-auto">
+        <div className="flex gap-1 justify-end mt-1 space-x-2 z-50">
           {languages &&
             languages.map((language) => {
               switch (language) {
