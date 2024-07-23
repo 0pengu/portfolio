@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Rubik } from "next/font/google";
 import "./globals.css";
+import AnimatedBeam from "@/components/Background/Background";
 import { Navbar } from "@/components/Navbar";
 
 const rubik = Inter({
@@ -22,8 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={rubik.className}>
-        <Navbar />
         {children}
+        <Navbar />
       </body>
     </html>
   );

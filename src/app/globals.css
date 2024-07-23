@@ -70,13 +70,13 @@ h1 > .magic > .magic-star {
 }
 
 h1 > .magic > .magic-star > svg {
-  animation: rotate 1500ms linear infinite;
+  animation: rotate 1000ms linear infinite;
   display: block;
   opacity: 0.7;
 }
 
 h1 > .magic > .magic-star > svg > path {
-  fill: var(--purple);
+  fill: var(--violet);
 }
 
 h1 > .magic > .magic-text {

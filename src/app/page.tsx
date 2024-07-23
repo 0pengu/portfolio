@@ -7,6 +7,7 @@ import { CardBody } from "@/components/Card/CardBody";
 import { Magic } from "@/components/Magic/Magic";
 import { MagicStar } from "@/components/Magic/MagicStar";
 import { Progress } from "@/components/Progress";
+import { useEffect } from "react";
 import { BiCalendar, BiMouse } from "react-icons/bi";
 import { CgCalendar } from "react-icons/cg";
 import { FaMouse } from "react-icons/fa";
@@ -17,7 +18,11 @@ import { RiMickeyFill } from "react-icons/ri";
 import { SiRiotgames } from "react-icons/si";
 import { TbHandFinger } from "react-icons/tb";
 // TODO - Add images to the cards instead of icons
+import { motion } from "framer-motion";
 import { HOne } from "@/components/Motion/HOne";
+import { HTwo } from "@/components/Motion/HTwo";
+import { HThree } from "@/components/Motion/HThree";
+import { ShimmerText } from "@/components/ShimmerText/ShimmerText";
 
 import InstalockImg from "../../public/screenshot/instalock.midhat.io.png";
 import PortfolioImg from "../../public/screenshot/midhat.io.png";
@@ -42,10 +47,10 @@ export default function Home() {
   return (
     <>
       <AnimatedBeam>
-        <section className="h-dvh w-dvh">
+        <div className="h-full w-full" id="top">
           <div className="title-body relative flex flex-col items-center justify-center h-full">
             <HOne
-              className="shadow-lg text-3xl md:text-7xl lg:text-8xl"
+              className="text-3xl md:text-7xl lg:text-8xl"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
@@ -56,24 +61,30 @@ export default function Home() {
             >
               Hi, I'm <Magic name={"Tahmid Ahmed"} />
             </HOne>
-            {/*             className="text-xl md:text-2xl lg:text-4xl"*/}
+
+            <br />
+
             <div className="text-xl md:text-2xl lg:text-4xl">
               <Typewriter steps={titles} />
             </div>
-            <br />
+
             <br />
             {/* TODO - Could use Framer to animate buttons */}
+            <div>
+              <Resume />
+            </div>
             <div className="space-x-4">
               <LinkedIn url={"/linkedin"} name={"/in/tahmidahmed-"} />
-              <Resume />
+              <GitHub url={"https://github.com/0pengu"} name={"0pengu"} />
               <Email
                 url={"mailto:tahmid@midhat.io"}
                 email={"tahmid@midhat.io"}
               />
-              <GitHub url={"https://github.com/0pengu"} name={"0pengu"} />
             </div>
           </div>
-        </section>
+        </div>
+      </AnimatedBeam>
+      <div className="w-dvw h-dvh content-center text-center">
         <div className="text-center text-2xl p-2">Projects</div>
         <CardBody>
           <Card
@@ -148,7 +159,7 @@ export default function Home() {
             languages={["python", "twilio"]}
           />
         </CardBody>
-      </AnimatedBeam>
+      </div>
     </>
   );
 }

@@ -2,12 +2,16 @@
 
 import { useEffect, useRef } from "react";
 import { Card } from "@/components/Card/Card";
-import { usePathStore } from "@/components/store";
+import { usePathStore, useProgrammaticStore } from "@/components/store";
 
 export function CardBody({ children }: { children: React.ReactNode }) {
   const path = usePathStore((state) => state.path);
   const setPath = usePathStore((state) => state.setPath);
   const ref = useRef<HTMLDivElement>(null);
+  const [programmatic, setProgrammatic] = useProgrammaticStore((state) => [
+    state.programmatic,
+    state.setProgrammatic,
+  ]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -37,28 +41,41 @@ export function CardBody({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (path === "/projects") {
-      ref.current && ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-    if (path === "/") {
-      document.body.scrollIntoView({ behavior: "smooth" });
+      setProgrammatic(true);
+      ref.current?.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        setProgrammatic(false);
+      }, 500);
+    } else if (path === "/") {
+      setProgrammatic(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setTimeout(() => {
+        setProgrammatic(false);
+      }, 500);
     }
   }, [path]);
 
   useEffect(() => {
     const handleScroll = () => {
+      if (programmatic) {
+        return;
+      }
+
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        console.log("Setting path to /projects");
         setPath("/projects");
       } else if (window.scrollY === 0) {
+        console.log("Setting path to /");
         setPath("/");
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("wheel", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [programmatic, setPath]);
 
   return (
     <div id="card-body" ref={ref}>
