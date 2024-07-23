@@ -61,9 +61,8 @@ export function Card({
   )[];
 }) {
   return type === "unclickable" ? (
-    <a
+    <div
       className="card"
-      href={href ?? undefined}
       style={{
         position: "relative",
         cursor: "not-allowed",
@@ -155,7 +154,7 @@ export function Card({
             })}
         </div>
       </div>
-    </a>
+    </div>
   ) : (
     <a
       className="card"

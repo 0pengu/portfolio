@@ -165,7 +165,6 @@ export default function Home() {
             languages={["python", "twilio"]}
           />
         </CardBody>
-        <div className="min-w-full"></div>
       </div>
     </>
   );
