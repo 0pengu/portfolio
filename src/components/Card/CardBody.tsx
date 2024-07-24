@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Card } from "@/components/Card/Card";
+import Card from "@/components/Card/Card";
 import { usePathStore, useProgrammaticStore } from "@/components/store";
 
 export function CardBody({ children }: { children: React.ReactNode }) {
