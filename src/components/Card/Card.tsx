@@ -23,7 +23,7 @@ import { BsDiscord } from "react-icons/bs";
 import { CgExternal } from "react-icons/cg";
 import Image, { StaticImageData } from "next/image";
 
-export function Card({
+export default function Card({
   href,
   src,
   icon,

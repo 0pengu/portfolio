@@ -100,7 +100,7 @@ export default function AnimatedBeam({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-lg w-[calc(100dvw-2rem)] h-[calc(100dvh-2rem)] m-4 border border-gray-700">
+    <div className="relative overflow-hidden rounded-lg w-[calc(100svw-2rem)] h-[calc(100svh-2rem)] m-4 border border-gray-700">
       <Background />
       <BorderBeam size={250} duration={12} delay={9} />
       <div className="relative h-full w-full">{children}</div>
