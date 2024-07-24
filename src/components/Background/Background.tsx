@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
+import { BorderBeam } from "@/components/BorderBeam/BorderBeam";
 
 function Beam({ index }: { index: number }) {
   const flag = index % 8 === 0;
@@ -19,7 +20,7 @@ function Beam({ index }: { index: number }) {
         width: "6px",
         transform: "translateY(-20%)",
         // @ts-ignore
-        "--delay": `${index * 0.5}s`,
+        "--delay": `${index * 0.15}s`,
       }}
     >
       <div
@@ -101,6 +102,7 @@ export default function AnimatedBeam({
   return (
     <div className="relative overflow-hidden rounded-lg w-[calc(100dvw-2rem)] h-[calc(100dvh-2rem)] m-4 border border-gray-700">
       <Background />
+      <BorderBeam size={250} duration={12} delay={9} />
       <div className="relative h-full w-full">{children}</div>
     </div>
   );

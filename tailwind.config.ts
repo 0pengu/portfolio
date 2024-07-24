@@ -13,6 +13,15 @@ const config: Config = {
           "0%": { transform: "translateY(-20%) translateX(-50%)" },
           "100%": { transform: "translateY(300%) translateX(-50%)" },
         },
+        trail: {
+          "0%": { "--angle": "0deg" },
+          "100%": { "--angle": "360deg" },
+        },
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
+        },
       },
       dropShadow: {
         glow: [
@@ -28,6 +37,8 @@ const config: Config = {
       },
       animation: {
         meteor: "meteor var(--duration) var(--delay) ease-in-out infinite",
+        trail: "trail var(--duration) linear infinite",
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
       },
     },
   },
