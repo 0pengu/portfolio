@@ -2,9 +2,6 @@
 
 import { usePathStore, useProgrammaticStore } from "@/components/store";
 import { Progress } from "@/components/Progress";
-import { stat } from "fs";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   motion,
@@ -41,8 +38,15 @@ export function Navbar() {
         style={{ y: yTransform }}
       >
         <div className="flex items-center justify-between h-16 mx-3 space-x-4">
-          <Link
+          <motion.a
             href="#"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.5,
+              ease: [0, 0.71, 0.2, 1.01],
+            }}
             className={`p-4 ${
               path === "/" ? "text-purple-400" : "text-white"
             } hover:drop-shadow-2xl`}
@@ -53,9 +57,16 @@ export function Navbar() {
             }}
           >
             Home
-          </Link>
-          <Link
+          </motion.a>
+          <motion.a
             href="#projects"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.5,
+              ease: [0, 0.71, 0.2, 1.01],
+            }}
             className={`p-4 ${
               path === "/projects" ? "text-purple-400" : "text-white"
             } hover:drop-shadow-2xl`}
@@ -66,7 +77,7 @@ export function Navbar() {
             }}
           >
             Projects
-          </Link>
+          </motion.a>
         </div>
         <Progress className="rounded-full" />
       </motion.nav>
