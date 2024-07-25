@@ -29,6 +29,9 @@ import PencilImg from "../../public/screenshot/pencil.synergy-prep.com.png";
 import TodoImg from "../../public/screenshot/todo.midhat.io.png";
 import Typewriter from "@/components/Typewriter/Typewriter";
 import AnimatedBeam from "@/components/Background/Background";
+import ResumeV2 from "@/components/Button/ResumeV2";
+import BlurFade from "@/components/magicui/blur-fade";
+import TextReveal from "@/components/magicui/text-reveal";
 
 export default function Home() {
   const titles = [
@@ -84,6 +87,12 @@ export default function Home() {
           </div>
         </div>
       </AnimatedBeam>
+      <div className="z-10 flex min-h-[16rem] items-center justify-center rounded-lg text-center">
+        <TextReveal text="I am a computer science student at Hunter College who is particularly passionate about fullstack development." />
+      </div>
+      <div className="z-10 flex min-h-[16rem] items-center justify-center rounded-lg">
+        <TextReveal text="Here are some projects I have been working on" />
+      </div>
       <div className="w-dvw h-dvh content-center text-center">
         <div className="text-center text-2xl p-2">Projects</div>
         <CardBody>
