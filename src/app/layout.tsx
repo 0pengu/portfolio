@@ -7,6 +7,7 @@ import { BiDownArrow } from "react-icons/bi";
 import { FaCaretDown, FaDownLong, FaUpDown } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { DownArrow } from "@/components/DownArrow/DownArrow";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const rubik = Inter({
   subsets: ["latin"],
