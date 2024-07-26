@@ -60,10 +60,7 @@ const Word: FC<WordProps> = ({ children, progress, range }) => {
   return (
     <span className="relative mx-1 lg:mx-2.5">
       <span className={"absolute opacity-30"}>{children}</span>
-      <motion.span
-        style={{ opacity: opacity }}
-        className={"text-black dark:text-white"}
-      >
+      <motion.span style={{ opacity: opacity }} className={"text-white"}>
         {children}
       </motion.span>
     </span>
