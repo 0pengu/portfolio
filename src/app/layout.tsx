@@ -16,8 +16,9 @@ const rubik = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Tahmid Ahmed",
-  description: "Personal website of Tahmid Ahmed at tahmid.io",
+  title: "Tahmid Ahmed - Portfolio - Software Engineer",
+  description:
+    "Personal website of Tahmid Ahmed at tahmid.io. Software Engineer, Full Stack Developer, and a Computer Science student at Hunter College.",
   keywords: [
     "Tahmid Ahmed",
     "tahmid.io",
@@ -29,8 +30,20 @@ export const metadata: Metadata = {
     "Tahmid Ahmed personal website",
     "Tahmid Ahmed github",
     "Tahmid Ahmed software engineer",
+    "Tahmid Ahmed Synergy Prep",
+    "Tahmid Ahmed Hunter College",
+    "Tahmid Ahmed LinkedIn",
+    "Tahmid Ahmed resume",
+    "Tahmid Ahmed projects",
+    "Tahmid Ahmed blog",
+    "Tahmid Ahmed tahmid.io",
+    "Tahmid Ahmed midhat.io",
   ],
-  authors: [{ name: "Tahmid Ahmed" }, { name: "0pengu" }],
+  authors: [
+    { name: "Tahmid Ahmed" },
+    { name: "0pengu" },
+    { name: "Midhat.io" },
+  ],
 };
 
 export default function RootLayout({
