@@ -22,7 +22,7 @@ async function main() {
   await ghClient.updateK8sTagWithPR({
     manifestRepo: ["tahminator", "k8s-personal"],
     originRepo: ["tahminator", "portfolio"],
-    kustomizationFilePath: "apps/production/portfolio/kustomization.yaml",
+    kustomizationFilePath: "base/production/portfolio/kustomization.yaml",
     imageName: "tahminator/portfolio",
     newTag: newTagVersion,
     environment: "production",
