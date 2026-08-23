@@ -25,8 +25,7 @@ jobs:
       - name: Setup Pipeline
         uses: ./.github/composite/setup
         with:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          SECRETS: ${{ toJSON(secrets) }}
 
       - name: Get Parent SHA
         id: prev
@@ -50,8 +49,7 @@ jobs:
       - name: Setup Pipeline
         uses: ./.github/composite/setup
         with:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          SECRETS: ${{ toJSON(secrets) }}
 
       - name: Deploy Service
         uses: ./.github/composite/deploy

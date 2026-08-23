@@ -1,8 +1,9 @@
 "use client";
 
 import { useScroll, useSpring } from "framer-motion";
-import { HTMLAttributes, useEffect, useState } from "react";
+import { HTMLAttributes } from "react";
 import { motion } from "framer-motion";
+import { useScrollContainerRef } from "@/lib/hooks/useScrollContainerRef";
 
 // TODO - Could use Framer Motion for this progress bar instead - https://www.framer.com/motion/scroll-animations/
 
@@ -11,7 +12,8 @@ export function Progress({
 }: {
   className: HTMLAttributes<HTMLDivElement>["className"];
 }) {
-  const { scrollYProgress } = useScroll();
+  const containerRef = useScrollContainerRef();
+  const { scrollYProgress } = useScroll({ container: containerRef });
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,

@@ -1,8 +1,4 @@
-import {
-  DockerClient,
-  EnvClient,
-  EnvClientStrategy,
-} from "@tahminator/pipeline";
+import { DockerClient } from "@tahminator/pipeline";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
@@ -19,9 +15,7 @@ const { originalTag, newGithubTag } = await yargs(hideBin(process.argv))
   .parse();
 
 export async function main() {
-  const envClient = EnvClient.create(EnvClientStrategy.GIT_CRYPT);
-  const ciEnv = await envClient.readFromEnv(".env.ci");
-  const { dockerHubPat } = parseCiEnv(ciEnv);
+  const { dockerHubPat } = parseCiEnv(process.env);
   await using dockerClient = await DockerClient.create(
     "tahminator",
     dockerHubPat,
@@ -34,7 +28,7 @@ export async function main() {
   });
 }
 
-function parseCiEnv(ciEnv: Record<string, string>) {
+function parseCiEnv(ciEnv: Record<string, string | undefined>) {
   const dockerHubPat = (() => {
     const v = ciEnv["DOCKER_HUB_PAT"];
     if (!v) {

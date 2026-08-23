@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { getScrollContainer } from "@/lib/scrollContainer";
 
-type Routes = "/" | "/projects";
+type Routes = "/" | "/experience" | "/projects";
 
 const routeMap: Record<Routes, string> = {
   "/": "home",
+  "/experience": "experience",
   "/projects": "projects",
 };
 
@@ -35,33 +37,40 @@ export const useRouter = () => {
     // The route has updated manually. We should not scroll.
     if (manualScrollRef.current) return;
 
+    const container = getScrollContainer();
+    if (!container) return;
+
     // Index override to scroll to the top of the screen instead.
     if (route === "/") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      container.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
     const element = document.getElementById(routeMatcher(route));
     if (!element) return;
 
-    scrollToElementWithOffset(element, 200);
+    scrollToElementWithOffset(container, element, 200);
   }, [route]);
 
   const manuallyScrolledPath = () => {
     if (!manualScrollRef.current) return;
 
-    if (window.scrollY === 0) {
+    const container = getScrollContainer();
+    if (!container) return;
+
+    if (container.scrollTop === 0) {
       setRoute("/");
       return;
     }
+
+    const containerRect = container.getBoundingClientRect();
+    const viewportMid = containerRect.top + containerRect.height / 2;
 
     for (const [path, id] of Object.entries(routeMap)) {
       const element = document.getElementById(id);
       if (!element) continue;
 
       const rect = element.getBoundingClientRect();
-      const inView =
-        rect.top <= window.innerHeight / 2 &&
-        rect.bottom >= window.innerHeight / 2;
+      const inView = rect.top <= viewportMid && rect.bottom >= viewportMid;
 
       if (inView) {
         setRoute(path as Routes);
@@ -71,10 +80,13 @@ export const useRouter = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", manuallyScrolledPath);
+    const container = getScrollContainer();
+    if (!container) return;
+
+    container.addEventListener("scroll", manuallyScrolledPath);
 
     return () => {
-      window.removeEventListener("scroll", manuallyScrolledPath);
+      container.removeEventListener("scroll", manuallyScrolledPath);
     };
   });
 
@@ -85,13 +97,17 @@ export const useRouter = () => {
 };
 
 function scrollToElementWithOffset(
+  container: HTMLElement,
   element: HTMLElement,
   offset: number = 100,
 ): void {
-  const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
-  const scrollTarget = elementTop - offset;
+  const elementRect = element.getBoundingClientRect();
+  const containerRect = container.getBoundingClientRect();
+  const elementTopWithinContainer =
+    elementRect.top - containerRect.top + container.scrollTop;
+  const scrollTarget = elementTopWithinContainer - offset;
 
-  window.scrollTo({
+  container.scrollTo({
     top: scrollTarget,
     behavior: "smooth",
   });
