@@ -1,15 +1,15 @@
 type Experience = {
   role: string;
   company: string;
+
   location: string;
   dates: string;
 };
-
 const experiences: Experience[] = [
   {
     role: "Software Engineer Intern",
     company: "Capital One",
-    location: "New York, NY",
+    location: "McLean, VA",
     dates: "Jun. 2026 – Aug. 2026",
   },
   {
