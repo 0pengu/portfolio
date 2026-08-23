@@ -6,25 +6,15 @@ import { HOne } from "@/components/Motion/HOne";
 
 import AnimatedBeam from "@/components/Background/Background";
 import { Div } from "@/components/Motion/Div";
-import Typewriter from "@/components/Typewriter/Typewriter";
+import { P } from "@/components/Motion/P";
+import Experience from "@/app/_components/Experience";
 import Project from "@/app/_components/Projects";
-
-const titles = [
-  "",
-  1500,
-  "develop unique software",
-  800,
-  "solve hard problems",
-  800,
-  "learn new things",
-  800,
-];
 
 export default function Home() {
   return (
     <>
       <AnimatedBeam>
-        <div className="h-full w-full" id="home">
+        <div className="h-[calc(100svh-2rem)] w-full" id="home">
           <div className="title-body relative flex flex-col items-center justify-center h-full">
             <HOne
               className="text-3xl md:text-7xl lg:text-8xl"
@@ -39,10 +29,21 @@ export default function Home() {
               Hi, I'm <Magic name={"Tahmid Ahmed"} />
             </HOne>
             <br />
-            <div className="flex items-center text-xl md:text-2xl lg:text-4xl">
-              <div className="mr-2">I like to</div>
-              <Typewriter steps={titles} />
-            </div>
+            <P
+              className="text-center text-base md:text-lg lg:text-xl"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+            >
+              Backend Software Engineer
+              <sup className="ml-1 block text-[0.6em] leading-snug sm:inline sm:align-super">
+                + a little platform/infra {"&"} frontend
+              </sup>
+            </P>
             <br />
             <Div
               className="space-x-4"
@@ -69,8 +70,9 @@ export default function Home() {
             </Div>
           </div>
         </div>
+        <Experience />
+        <Project />
       </AnimatedBeam>
-      <Project />
     </>
   );
 }

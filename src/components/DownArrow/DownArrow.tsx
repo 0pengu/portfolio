@@ -3,25 +3,24 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FaCaretDown } from "react-icons/fa6";
+import { getScrollContainer } from "@/lib/scrollContainer";
 
 export function DownArrow() {
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
+    const container = getScrollContainer();
+    if (!container) {
+      return;
+    }
+
     const handleScroll = () => {
-      if (
-        document.body.scrollTop > 20 ||
-        document.documentElement.scrollTop > 20
-      ) {
-        setHidden(true);
-      } else {
-        setHidden(false);
-      }
+      setHidden(container.scrollTop > 20);
     };
-    addEventListener("scroll", handleScroll);
+    container.addEventListener("scroll", handleScroll);
 
     return () => {
-      removeEventListener("scroll", handleScroll);
+      container.removeEventListener("scroll", handleScroll);
     };
   });
 

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { BorderBeam } from "@/components/BorderBeam/BorderBeam";
+import { SCROLL_CONTAINER_ID } from "@/lib/scrollContainer";
 
 function Beam({ index }: { index: number }) {
   const flag = index % 8 === 0;
@@ -67,13 +67,13 @@ function useGridCount() {
   };
 }
 
-function Background() {
+export function Background() {
   const { count, containerRef } = useGridCount();
 
   return (
     <div
       ref={containerRef}
-      className="-z-1 absolute inset-0 flex h-full w-full flex-row justify-between bg-black"
+      className="absolute inset-0 -z-10 flex h-full w-full flex-row justify-between bg-black"
     >
       <div className="absolute inset-0 h-full w-full rounded-full opacity-40" />
       <AnimatePresence>
@@ -102,8 +102,12 @@ export default function AnimatedBeam({
   return (
     <div className="relative overflow-hidden rounded-lg w-[calc(100svw-2rem)] h-[calc(100svh-2rem)] m-4 border border-gray-700">
       <Background />
-      <BorderBeam size={250} duration={12} delay={9} />
-      <div className="relative h-full w-full">{children}</div>
+      <div
+        id={SCROLL_CONTAINER_ID}
+        className="relative h-full w-full overflow-y-auto overflow-x-hidden"
+      >
+        {children}
+      </div>
     </div>
   );
 }
