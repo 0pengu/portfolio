@@ -21,30 +21,55 @@ type GridItem =
   | { type: "single"; project: Project }
   | { type: "pair"; projects: [Project, Project] };
 
+// Simulated against the lg:grid-cols-3 layout; smaller breakpoints wrap fine either way.
+const GRID_COLS = 3;
+
 function groupProjectsForGrid(projects: Project[]): GridItem[] {
   const items: GridItem[] = [];
-  let pendingCompact: Project | null = null;
+  let col = 0;
+  let rowHasVideo = false;
+  let i = 0;
 
-  for (const project of projects) {
+  const advance = () => {
+    col = (col + 1) % GRID_COLS;
+    if (col === 0) rowHasVideo = false;
+  };
+
+  while (i < projects.length) {
+    const project = projects[i];
+
     if (project.video) {
-      if (pendingCompact) {
-        items.push({ type: "single", project: pendingCompact });
-        pendingCompact = null;
-      }
       items.push({ type: "single", project });
+      rowHasVideo = true;
+      advance();
+      i += 1;
       continue;
     }
 
-    if (pendingCompact) {
-      items.push({ type: "pair", projects: [pendingCompact, project] });
-      pendingCompact = null;
-    } else {
-      pendingCompact = project;
-    }
-  }
+    const cellsLeftInRow = GRID_COLS - col;
+    const rowIsVideoFree =
+      !rowHasVideo &&
+      projects.slice(i, i + cellsLeftInRow).every((p) => !p.video);
 
-  if (pendingCompact) {
-    items.push({ type: "single", project: pendingCompact });
+    if (rowIsVideoFree) {
+      const count = Math.min(cellsLeftInRow, projects.length - i);
+      for (let k = 0; k < count; k++) {
+        items.push({ type: "single", project: projects[i + k] });
+        advance();
+      }
+      i += count;
+      continue;
+    }
+
+    const next = projects[i + 1];
+    if (next && !next.video) {
+      items.push({ type: "pair", projects: [project, next] });
+      i += 2;
+    } else {
+      items.push({ type: "single", project });
+      i += 1;
+    }
+    advance();
   }
 
   return items;
@@ -536,6 +561,213 @@ const projects: Project[] = [
         </Button>
       </a>,
     ],
+  },
+  {
+    name: "@tahminator/pipeline",
+    video: "",
+    blurb: "Custom-built CICD library built over TypeScript and Bun Shell",
+    description: (
+      <>
+        <p className="text-left">
+          `@tahminator/pipeline` is a custom library I built that is used across
+          all my personal repositories as well as all our repositories within
+          Patina Network.
+        </p>
+        <p className="text-left">
+          As a patented Gen-Z engineer, I always hated writing bash scripts; so
+          I did what everyone my age does, make it so I can use TypeScript
+          instead! :)
+        </p>
+        <p className="text-left">
+          This library helps abstract a lot of logic into very easy to use
+          clients. Some examples includes a Sonar client for code coverage in
+          any language or configuration, local Postgres {"&"} Redis instances
+          that can be spun up quickly
+          {"&"} easily in CI, a GitHub client that can be used to interface with
+          various parts of the Github API (including Actions functionality), and
+          much more.
+        </p>
+        <p className="text-left">See some examples of it being used here:</p>
+        <ul className="text-left">
+          <li>
+            <a
+              href={
+                "https://github.com/tahminator/portfolio/blob/main/.github/scripts/src/deploy/index.ts#L16-L29"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              tahminator/portfolio/.github/scripts/src/deploy/index.ts#L16-L29
+            </a>
+            <ul>
+              <li>
+                GitHub App token auth {"&"} bumping a k8s manifest via PR.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href={
+                "https://github.com/tahminator/instalock-web/blob/main/.github/scripts/src/deploy/index.ts#L33-L46"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              tahminator/instalock-web/.github/scripts/src/deploy/index.ts#L33-L46
+            </a>
+            <ul>
+              <li>Same GitHub client, but env decrypted via git-crypt.</li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href={
+                "https://github.com/tahminator/sapling/blob/main/.github/scripts/src/upload-npm/index.ts#L1-L7"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              tahminator/sapling/.github/scripts/src/upload-npm/index.ts#L1-L7
+            </a>
+            <ul>
+              <li>Publishing an npm package in one line via NPMClient.</li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href={
+                "https://github.com/Patina-Network/patchats/blob/main/.github/scripts/src/db/run-local-db/index.ts#L1-L19"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Patina-Network/patchats/.github/scripts/src/db/run-local-db/index.ts#L1-L19
+            </a>
+            <ul>
+              <li>
+                Spinning up a disposable local Postgres for CI migrations.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href={
+                "https://github.com/Patina-Network/platform-infra/blob/main/.github/scripts/src/pulumi/up.ts#L1-L26"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Patina-Network/platform-infra/.github/scripts/src/pulumi/up.ts#L1-L26
+            </a>
+            <ul>
+              <li>SOPS-decrypted env vars piped into a Pulumi up wrapper.</li>
+            </ul>
+          </li>
+        </ul>
+      </>
+    ),
+    links: [
+      <a
+        href={"https://www.npmjs.com/package/@tahminator/pipeline"}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Button variant={"ghost"}>
+          <FaNpm />
+        </Button>
+      </a>,
+      <a
+        href={"https://github.com/tahminator/pipeline"}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Button variant={"ghost"}>
+          <FaGithub />
+        </Button>
+      </a>,
+    ],
+  },
+  {
+    name: "OSS Contributions",
+    video: "",
+    blurb:
+      "A few bugfixes & small features I've upstreamed to tools I use daily.",
+    description: (
+      <ul className="text-left">
+        <li>
+          <a
+            href="https://github.com/LargeModGames/spotatui/pull/304"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LargeModGames/spotatui
+          </a>
+          <ul>
+            <li>Made the Vim-style movement keybinds fully configurable.</li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="https://github.com/Jean-Tinland/simple-bar/pull/478"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Jean-Tinland/simple-bar
+          </a>
+          <ul>
+            <li>
+              Added a toggle to show/hide Spotify metadata (artist {"&"} track
+              name).
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="https://github.com/pulumi/pulumi-digitalocean/pull/1420"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            pulumi/pulumi-digitalocean
+          </a>
+          <ul>
+            <li>
+              Marked a token output as a secret so it can{"'"}t leak in output
+              state.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="https://github.com/pwntester/octo.nvim/pull/1535"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            pwntester/octo.nvim
+          </a>
+          <ul>
+            <li>
+              Made branch name matching case-sensitive so local diffs load
+              correctly that otherwise would not.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="https://github.com/nvimtools/none-ls.nvim/pull/290"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            nvimtools/none-ls.nvim
+          </a>
+          <ul>
+            <li>
+              Fixed Checkstyle diagnostics not showing by stripping a file: URI
+              prefix Neovim doesn{"'"}t support.
+            </li>
+          </ul>
+        </li>
+      </ul>
+    ),
   },
 ];
 

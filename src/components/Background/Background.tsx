@@ -13,8 +13,8 @@ function Beam({ index }: { index: number }) {
   return (
     <div
       className={cn("h-full animate-meteor ", {
-        "[--duration:7s]": flag,
-        "[--duration:11s]": !flag,
+        "[--duration:4s]": flag,
+        "[--duration:6s]": !flag,
       })}
       style={{
         width: "6px",
@@ -69,6 +69,9 @@ function useGridCount() {
 
 export function Background() {
   const { count, containerRef } = useGridCount();
+  // Fewer grid lines on mobile means a fixed 1-in-N ratio produces very few
+  // beams, so use a tighter ratio on narrow screens to keep density consistent.
+  const beamEvery = count < 15 ? 1 : 4;
 
   return (
     <div
@@ -86,7 +89,7 @@ export function Background() {
             transition={{ duration: 0.5, delay: i * 0.05 }}
             className="relative h-full w-px bg-gray-100 bg-opacity-10"
           >
-            {(1 + i) % 4 === 0 && <Beam index={i + 1} />}
+            {(1 + i) % beamEvery === 0 && <Beam index={i + 1} />}
           </motion.div>
         ))}
       </AnimatePresence>
